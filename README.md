@@ -4,6 +4,8 @@ An ElectronJS application that started out as an idea for a portable USB applica
 ## Modules
 - **[Zany](https://github.com/jnvm/zany)**
 - **(IP)** External IP Grabber
+- **(OAuth)** OAuth code grabber for future modules
+- **(GitHub)** Currently only to grab __gist__.github stuff.
 
 ## When building...
 You will want to comment out the fs.readFileSync and replace the string version with the JSON Encoded version of welcome.html
