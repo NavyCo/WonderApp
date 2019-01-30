@@ -63,7 +63,7 @@ module.exports = function () {
 				return cmd;
 			}
 		}, options: [],
-		help: `OAuth options`,
+		help: `Get/Set OAuth data for GitHub`,
 	});
 	document.getElementsByName("oauth")[0].checked = true;
 	document.getElementsByName("oauth")[0].disabled = true;

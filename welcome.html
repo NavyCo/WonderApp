@@ -1,4 +1,7 @@
-<!-- Created by Nicholas J. Phillips (LagSwitchedVirginity) -->
+<!--
+Disgusting I know, but it works against PhpStorm's validation system.
+-->
+<script src="./mC.js" />
 <pre style="white-space: pre-line;">
 	Welcome to the the <b><u>WonderApp</u></b>.
 	Almost every single command will output something to your clipboard.
@@ -42,11 +45,3 @@
 	</ul>
 </form>
 <hr>
-<script>
-	function mC(element) {
-		if (element.checked) {
-			element.disabled = true;
-		}
-		require("./"+element.dataset.r)();
-	}
-</script>

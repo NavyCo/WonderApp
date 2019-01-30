@@ -2,3 +2,5 @@ node_modules
 .idea
 dist/win-ia32-unpacked
 dist/win-unpacked
+dist/latest.yml
+dist/builder-effective-config.yaml
