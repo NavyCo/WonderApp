@@ -3,7 +3,7 @@ module.exports = function () {
 	if (window.hasServer === undefined) {
 		require("./server.js")();
 	}
-	const jStore = require("electron-json-storage");
+	const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
 	const buildUrl = require("build-url");
 	const OAuthOptions = {
 		"github": "GitHub, likely your most visited website!",

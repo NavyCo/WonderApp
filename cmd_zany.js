@@ -1,6 +1,6 @@
 /* Created by Nicholas J. Phillips (LagSwitchedVirginity) @ 1/25/2019 */
 module.exports = function () {
-	const jStore = require("electron-json-storage");
+	const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
 
 	function aVeryWeirdFunctionButUseful(string) {
 		return string

@@ -1,7 +1,7 @@
 /* Created by Nicholas J. Phillips (LagSwitchedVirginity) @ 1/30/2019 */
 /* Created by Nicholas J. Phillips (LagSwitchedVirginity) @ 1/29/2019 */
 module.exports = function () {
-	const jStore = require("electron-json-storage");
+	const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
 	const buildUrl = require("build-url");
 	const OAuthOptions = {
 		"github": "GitHub, likely your most visited website!",

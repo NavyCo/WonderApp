@@ -2,7 +2,7 @@
 const electron = require("electron");
 const {app, BrowserWindow} = electron;
 
-const jStore = require("electron-json-storage");
+const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

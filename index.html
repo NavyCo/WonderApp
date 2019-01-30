@@ -59,7 +59,7 @@
 	const electron = require("electron");
 	const {clipboard, app, remote} = electron;
 	//
-	const jStore = require("electron-json-storage");
+	const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
 	var $ = jQuery = require("./jquery-3.3.1.min.js");
 	var ptty = require("./ptty.jquery.min.js");
 	require("./gist-embed.min.js");
