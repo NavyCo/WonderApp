@@ -48,7 +48,7 @@ module.exports = function () {
 							else document.getElementById("oauth-github-" + sid).innerHTML = `The code is <input value="${response}">.`;
 						}, 20);
 					} else {
-						jStore.set("oauth-github", code, function (error) {if (error) throw error;});
+						jStore.set("data-oauth-github", code, function (error) {if (error) throw error;});
 						cmd.out = `The code <input value="${code}"> you've provided has been set and stored!`;
 					}
 					return cmd;

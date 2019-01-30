@@ -1,6 +1,8 @@
 /* Created by Nicholas J. Phillips (LagSwitchedVirginity) @ 1/25/2019 */
 module.exports = function () {
-	const jStore = require("electron-json-storage");jStore.setDataPath(process.cwd());
+	const jStore = require("electron-json-storage");
+	jStore.setDataPath(process.cwd());
+	const _ = require("underscore");
 
 	function aVeryWeirdFunctionButUseful(string) {
 		return string
@@ -40,12 +42,14 @@ zany [decode,decrypt,d]  {encrypted content}`;
 			weirdo: "🍑🍆🥚",
 		},
 	};
-	jStore.get("zany-key", function (error, data) {
-		if (error) throw error;
+	jStore.get("data-zany-key", function (error, data) {
+		if (error||_.isEmpty(data)) {jStore.set("data-zany-key", "zany");window.zany.key = "zany";console.log(["zany-key", "zany"]);return}
+		console.log(["zany-key", data]);
 		window.zany.key = data;
 	});
-	jStore.get("zany-vkey", function (error, data) {
-		if (error) throw error;
+	jStore.get("data-zany-vkey", function (error, data) {
+		if (error||_.isEmpty(data)) {jStore.set("data-zany-vkey", "zany");window.zany.vkey = "zany";console.log(["zany-vkey", "zany"]);return}
+		console.log(["zany-vkey", data]);
 		window.zany.vkey = data;
 	});
 	$ptty.register("command", {
@@ -104,8 +108,8 @@ zany [decode,decrypt,d]  {encrypted content}`;
 							window.zany.key = aVeryWeirdFunctionButUseful(key);
 						}
 						if (key !== "unicode") {
-							jStore.set("zany-key", window.zany.key, function (error) {if (error) throw error;});
-							jStore.set("zany-vkey", window.zany.vkey, function (error) {if (error) throw error;});
+							jStore.set("data-zany-key", window.zany.key, function (error) {if (error) throw error;});
+							jStore.set("data-zany-vkey", window.zany.vkey, function (error) {if (error) throw error;});
 						} else {
 							$ptty.echo("Didn't save the key to your config due to the extreme length.");
 						}

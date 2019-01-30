@@ -1,8 +1,8 @@
 version: 1.0.0
 files:
   - url: wonderapp-setup-1.0.0.exe
-    sha512: F31EzDI6BEP0/SIYny2wT0GozDqBy4QWo2R4j2QTaZ8hpvs5hnmuLG7EqUxZXymRCF2eLWvat2x9segh0TNwsw==
-    size: 87019529
+    sha512: CV7RLn1zqx8efTGT4zVCckhfPRn4cAL6QqkWxyc2CyM669MTdWriGmHucXWCL4FG2UI4rssgLfOD6ySohi0KxQ==
+    size: 87074026
 path: wonderapp-setup-1.0.0.exe
-sha512: F31EzDI6BEP0/SIYny2wT0GozDqBy4QWo2R4j2QTaZ8hpvs5hnmuLG7EqUxZXymRCF2eLWvat2x9segh0TNwsw==
-releaseDate: '2019-01-30T12:29:35.126Z'
+sha512: CV7RLn1zqx8efTGT4zVCckhfPRn4cAL6QqkWxyc2CyM669MTdWriGmHucXWCL4FG2UI4rssgLfOD6ySohi0KxQ==
+releaseDate: '2019-01-30T13:12:58.983Z'

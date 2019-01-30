@@ -5,3 +5,4 @@ dist/win-unpacked
 dist/latest.yml
 dist/builder-effective-config.yaml
 dist/*.zip
+*.json
