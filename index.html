@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>WonderApp</title>
+	<link rel="stylesheet" href="./fallout.css">
+	<link rel="stylesheet" href="./fullwindow.css">
+	<link rel="stylesheet" href="./progress.css">
+	<!--<link rel="stylesheet" type="text/css" href="./loading-bar.css"/>-->
+	<!--<script type="text/javascript" src="./loading-bar.js"></script>-->
+	<script>
+		const {openUrl, openItem} = require("./open");
+
+		function setProgress(selector, percent) {
+			var _bar = new window.ldBar(selector);
+			_bar.set(percent * 100);
+			return _bar;
+		}
+
+		function progress(selector) {
+			var _bar = new window.ldBar(selector);
+			return _bar;
+		}
+	</script>
+</head>
+<body>
+<div id="terminal" class="term"></div>
+<!--<script src="./view/jquery-3.3.1.min.js"></script>-->
+<!--<script src="./view/ptty.jquery.js"></script>-->
+<script>
+	const electron = require("electron");
+	const {clipboard, app, remote} = electron;
+	//
+	const jStore = require("electron-json-storage");
+	var $ = jQuery = require("./jquery-3.3.1.min.js");
+	var ptty = require("./ptty.jquery.min.js");
+	var _zany = require("zany");
+	var shortid = require("shortid");
+	var fs = require("fs");
+	var request = require("request"), requestProgress = require("request-progress");
+
+	//
+	function quitApplication() {
+		if (process.platform !== "darwin") { remote.app.exit(); }
+	}
+
+	window.modules = ["zany", "ip"];
+	window.loadedModules = {
+		zany: false,
+		ip: false,
+
+	};
+
+	function get_arguments() {
+		var last = $ptty.get_command_option("last");
+		var args = last.split(" ");
+		return args.shift();
+	}
+
+	let dataPath = jStore.getDataPath();
+	var $ptty = $("#terminal").Ptty({
+		theme: "ptty-fallout",
+		i18n: {
+//			welcome: fs.readFileSync("welcome.html"),
+			welcome: "<!-- Created by Nicholas J. Phillips (LagSwitchedVirginity) -->\n" +
+				"<pre style=\"white-space: pre-line;\">\n" +
+				"\tWelcome to the the <b><u>WonderApp</u></b>.\n" +
+				"\tAlmost every single command will output something to your clipboard.\n" +
+				"\tSo be prepared to possibly lose a limb or two in the process!\n" +
+				"\t\n" +
+				"\tData is stored at <a href=\"" + dataPath + "\" onclick=\"openItem(event,this);\">" + dataPath + "</a>\n" +
+				"</pre>\n" +
+				"<form>\n" +
+				"\t<ul>\n" +
+				"\t\t<li>Modules;\n" +
+				"\t\t\t<ul>\n" +
+				"\t\t\t\t<li><label><input type=\"checkbox\" name=\"zany\" disabled> zany</label></li>\n" +
+				"\t\t\t\t<li><label><input type=\"checkbox\" name=\"ip\" disabled> ip</label></li>\n" +
+				"\t\t\t</ul>\n" +
+				"\t\t</li>\n" +
+				"\t</ul>\n" +
+				"</form>\n" +
+				"<hr>",
+		},
+	});
+	$ptty.register("command", {name: "exit", method: quitApplication});
+	$ptty.register("command", {
+		name: "version", method: function (cmd) {
+			cmd.out = `We are using Node.js ${process.versions.node},
+Chromium ${process.versions.chrome},
+and Electron ${process.versions.electron}.`;
+			return cmd;
+		},
+	});
+	$ptty.register("command", {
+		name: "load",
+		method: function (cmd) {
+			cmd.out = `Something went wrong with your hunt for a module!`;
+			var input = $ptty.get_command_option("last");
+			let regExp = /load\s+(.*)/gi;
+			if (!regExp.test(input)) {
+				return cmd;
+			}
+			let arg = input.replace(regExp, "$1").toLowerCase();
+			for (var i = 0, len = window.modules.length; i < len; i++) {
+				let module = window.modules[i];
+				if (cmd.hasOwnProperty(module) && module === arg) {
+					if (window.loadedModules[module] === true) {
+						cmd.out = `${module} module is already loaded.`;
+					} else {
+						let modulePath = `./cmd_${module}.js`;
+						if (fs.existsSync(modulePath)) {
+							require(modulePath)();
+							cmd.out = `Loaded ${module} module.`;
+						} else {
+							cmd.out = `Failed to load ${module} module. (Module's path is invalid "${modulePath}" )`;
+						}
+					}
+					return cmd;
+				}
+			}
+			return cmd;
+		}, options: window.modules,
+
+		help: `Load modules\nModules:\n\t` + window.modules.join("\n\t"),
+	});
+</script>
+
+<script>
+	require("./renderer.js");
+	require("./cmd_zany.js")();
+	require("./cmd_ip.js")();
+</script>
+</body>
+</html>

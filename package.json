@@ -1,0 +1,32 @@
+{
+	"name": "wonderapp",
+	"version": "1.0.0",
+	"description": "A beautifully large app built around the idea of doing cool shit!",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"build": "electron-builder build --ia32 --x64"
+	},
+	"repository": "https://github.com/NavyCo/WonderApp",
+	"bugs": {
+		"web": "https://github.com/NavyCo/WonderApp/issues"
+	},
+	"issues": {
+		"web": "https://github.com/NavyCo/WonderApp/issues"
+	},
+	"homepage": "https://github.com/NavyCo/WonderApp",
+	"keywords": [],
+	"author": "GitHub",
+	"license": "CC0-1.0",
+	"dependencies": {
+		"closest-ratio": "^1.0.3",
+		"electron-download-manager": "^2.3.0",
+		"electron-json-storage": "^4.1.5",
+		"electron-open-link-in-browser": "^1.0.2",
+		"request": "^2.88.0",
+		"request-progress": "^3.0.0",
+		"shell": "^0.5.0",
+		"shortid": "^2.2.14",
+		"zany": "^1.0.6"
+	}
+}
