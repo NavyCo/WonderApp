@@ -1,0 +1,95 @@
+/* Created by Nicholas J. Phillips (LagSwitchedVirginity) @ 1/30/2019 */
+.gist, .gist div, .gist span, .gist object, .gist iframe,
+h1, .gist h2, .gist h3, .gist h4, .gist h5, .gist h6, .gist p, .gist blockquote, .gist pre,
+abbr, .gist address, .gist cite, .gist code,
+del, .gist dfn, .gist em, .gist img, .gist ins, .gist kbd, .gist q, .gist samp,
+small, .gist strong, .gist sub, .gist sup, .gist var,
+b, .gist i,
+dl, .gist dt, .gist dd, .gist ol, .gist ul, .gist li,
+fieldset, .gist form, .gist label, .gist legend,
+table, .gist caption, .gist tbody, .gist tfoot, .gist thead, .gist tr, .gist th, .gist td,
+article, .gist aside, .gist canvas, .gist details, .gist figcaption, .gist figure,
+footer, .gist header, .gist hgroup, .gist menu, .gist nav, .gist section, .gist summary,
+time, .gist mark, .gist audio, .gist video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+.gist {
+	line-height: 1;
+}
+
+.gist article, .gist aside, .gist details, .gist figcaption, .gist figure,
+.gist footer, .gist header, .gist hgroup, .gist menu, .gist nav, .gist section {
+	display: block;
+}
+
+.gist nav ul {
+	list-style: none;
+}
+
+.gist blockquote, .gist q {
+	quotes: none;
+}
+
+.gist blockquote:before, .gist blockquote:after,
+.gist q:before, .gist q:after {
+	content: '';
+	content: none;
+}
+
+.gist a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/* change colours to suit your needs */
+.gist ins {
+	background-color: #FFFF99;
+	color: #000000;
+	text-decoration: none;
+}
+
+/* change colours to suit your needs */
+.gist mark {
+	background-color: #FFFF99;
+	color: #000000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.gist del {
+	text-decoration: line-through;
+}
+
+.gist abbr[title], .gist dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+.gist table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+.gist hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #CCCCCC;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.gist input, .gist select {
+	vertical-align: middle;
+}

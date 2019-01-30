@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = electron = require("electron");
-const jStore=require("electron-json-storage");
+const electron = require("electron");
+const {app, BrowserWindow} = electron;
+
+const jStore = require("electron-json-storage");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -21,7 +23,7 @@ function createWindow() {
 	console.log(mainWindow);
 
 	// Open the DevTools.
-//	 mainWindow.webContents.openDevTools();
+//	mainWindow.webContents.openDevTools();
 
 	// Emitted when the window is closed.
 	mainWindow.on("closed", function () {
@@ -53,3 +55,4 @@ app.on("activate", function () {
 		createWindow();
 	}
 });
+const test="hi";

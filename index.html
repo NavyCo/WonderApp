@@ -6,9 +6,37 @@
 	<link rel="stylesheet" href="./fallout.css">
 	<link rel="stylesheet" href="./fullwindow.css">
 	<link rel="stylesheet" href="./progress.css">
-	<!--<link rel="stylesheet" type="text/css" href="./loading-bar.css"/>-->
-	<!--<script type="text/javascript" src="./loading-bar.js"></script>-->
+	<link rel="stylesheet" href="./gist.css">
+	<style>
+		dl {
+			border: 3px double #CCCCCC;
+			padding: 0.5em;
+		}
+
+		dt {
+			float: left;
+			clear: left;
+			width: 30%;
+			text-align: right;
+			font-weight: bold;
+			color: white;
+		}
+
+		dt::after {
+			content: ":";
+		}
+
+		dd {
+			margin: 0 0 0 110px;
+			padding: 0 0 0.5em 0;
+		}
+
+		dd:last-of-type {
+			padding: 0 0 0 0;
+		}
+	</style>
 	<script>
+		window.defaultURL = window.location.href;
 		const {openUrl, openItem} = require("./open");
 
 		function setProgress(selector, percent) {
@@ -34,6 +62,7 @@
 	const jStore = require("electron-json-storage");
 	var $ = jQuery = require("./jquery-3.3.1.min.js");
 	var ptty = require("./ptty.jquery.min.js");
+	require("./gist-embed.min.js");
 	var _zany = require("zany");
 	var shortid = require("shortid");
 	var fs = require("fs");
@@ -44,11 +73,12 @@
 		if (process.platform !== "darwin") { remote.app.exit(); }
 	}
 
-	window.modules = ["zany", "ip"];
+	window.modules = ["zany", "ip", "github", "oauth"];
 	window.loadedModules = {
 		zany: false,
 		ip: false,
-
+		github: false,
+		oauth: false,
 	};
 
 	function get_arguments() {
@@ -61,26 +91,8 @@
 	var $ptty = $("#terminal").Ptty({
 		theme: "ptty-fallout",
 		i18n: {
-//			welcome: fs.readFileSync("welcome.html"),
-			welcome: "<!-- Created by Nicholas J. Phillips (LagSwitchedVirginity) -->\n" +
-				"<pre style=\"white-space: pre-line;\">\n" +
-				"\tWelcome to the the <b><u>WonderApp</u></b>.\n" +
-				"\tAlmost every single command will output something to your clipboard.\n" +
-				"\tSo be prepared to possibly lose a limb or two in the process!\n" +
-				"\t\n" +
-				"\tData is stored at <a href=\"" + dataPath + "\" onclick=\"openItem(event,this);\">" + dataPath + "</a>\n" +
-				"</pre>\n" +
-				"<form>\n" +
-				"\t<ul>\n" +
-				"\t\t<li>Modules;\n" +
-				"\t\t\t<ul>\n" +
-				"\t\t\t\t<li><label><input type=\"checkbox\" name=\"zany\" disabled> zany</label></li>\n" +
-				"\t\t\t\t<li><label><input type=\"checkbox\" name=\"ip\" disabled> ip</label></li>\n" +
-				"\t\t\t</ul>\n" +
-				"\t\t</li>\n" +
-				"\t</ul>\n" +
-				"</form>\n" +
-				"<hr>",
+			welcome: fs.readFileSync("welcome.html"),
+//			welcome: "",
 		},
 	});
 	$ptty.register("command", {name: "exit", method: quitApplication});
@@ -128,8 +140,13 @@ and Electron ${process.versions.electron}.`;
 
 <script>
 	require("./renderer.js");
-	require("./cmd_zany.js")();
-	require("./cmd_ip.js")();
+	let debug = true;
+	if (debug) {
+		require("./cmd_zany.js")();
+		require("./cmd_ip.js")();
+		require("./cmd_github.js")();
+//		require("./cmd_oauth.js")();
+	}
 </script>
 </body>
 </html>

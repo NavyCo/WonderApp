@@ -5,7 +5,8 @@
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",
-		"build": "electron-builder build --ia32 --x64"
+		"buildall": "electron-builder build --ia32 --x64",
+		"build": "electron-builder build"
 	},
 	"repository": "https://github.com/NavyCo/WonderApp",
 	"bugs": {
@@ -19,10 +20,14 @@
 	"author": "GitHub",
 	"license": "CC0-1.0",
 	"dependencies": {
+		"build-url": "^1.3.2",
 		"closest-ratio": "^1.0.3",
 		"electron-download-manager": "^2.3.0",
 		"electron-json-storage": "^4.1.5",
 		"electron-open-link-in-browser": "^1.0.2",
+		"express": "^4.16.4",
+		"html-entities": "^1.2.1",
+		"is-port-free": "^1.0.7",
 		"request": "^2.88.0",
 		"request-progress": "^3.0.0",
 		"shell": "^0.5.0",

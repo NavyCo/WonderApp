@@ -4,3 +4,15 @@ An ElectronJS application that started out as an idea for a portable USB applica
 ## Modules
 - **[Zany](https://github.com/jnvm/zany)**
 - **(IP)** External IP Grabber
+
+## When building...
+You will want to comment out the fs.readFileSync and replace the string version with the JSON Encoded version of welcome.html
+```js
+var $ptty = $("#terminal").Ptty({
+		theme: "ptty-fallout",
+		i18n: {
+			welcome: fs.readFileSync("welcome.html"),
+//			welcome: "",
+		},
+	});
+	```

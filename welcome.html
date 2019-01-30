@@ -8,10 +8,45 @@
 	<ul>
 		<li>Modules;
 			<ul>
-				<li><label><input type="checkbox" name="zany" disabled> zany</label></li>
-				<li><label><input type="checkbox" name="ip" disabled> ip</label></li>
+				<li><label><input type="checkbox" name="zany" onchange="mC(this)" data-r="cmd_zany.js"> Zany</label>
+					<ul>
+						<li>--- <a href="javascript:void(0);" onclick="$ptty.run_command('help zany')">Help</a></li>
+					</ul>
+				</li>
+				<li><label><input type="checkbox" name="ip" onchange="mC(this)" data-r="cmd_ip.js"> <a href="javascript:void(0);" onclick="$ptty.run_command('ip')">IP</a></label></li>
+				<li><label><input type="checkbox" name="github" onchange="mC(this)" data-r="cmd_github.js"> github</label>
+					<ul>
+						<li>--- <a href="javascript:void(0);" onclick="$ptty.run_command('help gist-get')">Help</a></li>
+					</ul>
+				</li>
+				<li>
+					<hr>
+				</li>
+				<li><label><input type="checkbox" name="oauth" onchange="mC(this)" data-r="cmd_oauth.js"> OAuth</label>
+					<ul>
+						<li>--- <a href="javascript:void(0);" onclick="$ptty.run_command('oauth-list')">List Available OAuths</a></li>
+						<li>--- Requires Data-Server (Admin Permissions)</li>
+						<li>---- Will automatically load Data-Server on request.</li>
+					</ul>
+				</li>
+				<li>
+					<hr>
+				</li>
+				<li><label><input type="checkbox" name="dataServer" onchange="mC(this)" data-r="server.js"> Data-Server, ExpressJS | Port: <span id="dataServer-port">UNKNOWN</span></label>
+					<ul>
+						<li>--- Requires Administration Permissions</li>
+					</ul>
+				</li>
 			</ul>
 		</li>
 	</ul>
 </form>
 <hr>
+<script>
+	function mC(element) {
+		if (element.checked) {
+			element.disabled = true;
+		}
+		require("./"+element.dataset.r)();
+	}
+</script>

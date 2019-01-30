@@ -27,7 +27,7 @@ zany [decode,decrypt,d]  {encrypted content}`;
 			letters: `Ⓐⓐ⒜AaẠạÅåÄäẢảḀḁẤấẦầẨẩȂȃẪẫẬậẮắẰằẲẳẴẵẶặĀāĄąȀȁǺǻȦȧÁáǞǟǍǎÀàÃãǠǡÂâȺⱥÆæǢǣǼǽⱯꜲꜳꜸꜹꜺꜻⱭ℀⅍℁ªⒷⓑ⒝BbḂḃḄḅḆḇƁɃƀƂƃƄƅℬⒸⓒ⒞CcḈḉĆćĈĉĊċČčÇçƇƈȻȼℂ℃ƆꜾꜿℭ℅℆℄Ⓓⓓ⒟DdḊḋḌḍḎḏḐḑḒḓĎďƊƋƌƉĐđȡǱǲǳǄǅǆȸⅅⅆⒺⓔ⒠EeḔḕḖḗḘḙḚḛḜḝẸẹẺẻẾếẼẽỀềỂểỄễỆệĒēĔĕĖėĘęĚěÈèÉéÊêËëȄȅȨȩȆȇƎⱻɆɇƏǝℰⱸℯ℮ℇƐⒻⓕ⒡FfḞḟƑƒꜰℲⅎꟻℱ℻Ⓖⓖ⒢GgƓḠḡĜĝĞğĠġǤǥǦǧǴℊ⅁ǵĢģⒽⓗ⒣HhḢḣḤḥḦḧḨḩḪḫĤĥȞȟĦħⱧⱨꜦℍǶẖℏℎℋℌꜧⒾⓘ⒤IiḬḭḮḯĲĳÍíÌìÎîÏïĨĩĪīĬĭĮįǏǐıƚỺⅈⅉℹℑℐⒿⓙ⒥JjĴĵɈɉȷⱼǰⓀⓚ⒦KkḰḱḲḳḴḵĶķƘƙꝀꝁꝂꝃꝄꝅǨǩⱩⱪĸⓁⓛ⒧LlḶḷḸḹḺḻḼḽĹĺĻļĽľĿŀŁłỈỉⱠⱡȽꝉꝈⱢǇǈǉỊİịꞁ⅃⅂ȈȉȊȋℓℒⓂⓜ⒨MmḾḿṀṁṂṃꟿꟽⱮƜℳⓃⓝ⒩NnṄṅṆṇṈṉṊṋŃńŅņŇňǸǹÑñȠƞŊŋƝŉǊǋǌȵℕ№Ⓞⓞ⒪OoÖöṎṏṌṍṐṑṒṓȪȫȬȭȮȯȰȱǪǫǬǭỌọỎỏỐốỒồỔổỖỗỘộỚớỜờỞởỠỡỢợƠơŌōŎŏŐőÒòÓóÔôÕõǑǒȌȍȎȏŒœØøǾǿꝊꝎꝏ⍥⍤ℴⓅⓟ⒫℗PpṔṕṖṗƤƥⱣℙǷꟼ℘Ⓠⓠ⒬QqɊɋℚ℺ȹⓇⓡ⒭RrŔŕŖŗŘřṘṙṚṛṜṝṞṟȐȑȒȓɌɍƦꝚꝛⱤ℞ℜℛ℟ℝⓈⓢ⒮SsṠṡṢṣṤṥṦṧṨṩŚśŜŝŞşŠšȘșȿꜱƧƨϨϩẞßẛẜẝ℠Ⓣⓣ⒯TtṪṫṬṭṮṯṰṱŢţŤťŦŧȚțȾⱦƬƮƫƭẗȶ℡™Ⓤⓤ⒰UuṲṳṴṵṶṷṸṹṺṻỦủỤụỨứỪừỬửỮữỰựŨũŪūŬŭŮůŰűǙǚǗǘǛǜŲųǓǔȔȕÛûȖȗÙùÚúÜüƯưɄƲƱⓋⓥ⒱VvṼṽṾṿɅ℣ỼⱱⱴⱽⓌⓦ⒲WwẀẁẂẃẄẅẆẇẈẉŴŵⱲⱳϢϣẘⓍⓧ⒳XxẊẋẌẍℵ×Ⓨⓨ⒴yYẎẏỾỿỲỳỴỵỶỷỸỹŶŷƳƴŸÿÝýɎɏȲȳƔẙ⅄ℽⓏⓩ⒵ZzẐẑẒẓẔẕŹźŻżŽžȤȥⱫⱬƵƶɀℨℤ`,
 			zwsp: `‪‭⁠⁡⁢⁣⁤⁦⁧⁨⁩⁪⁫⁬⁭⁮⁯𛲠𛲡𛲢𛲣𝅳𝅴𝅵𝅶𝅷𝅸𝅹𝅺󠀁`,
 			//all unicode characters property
-			unicode: true,
+			unicode: false,
 			//or use predefined blocks,
 			futhark: _zany.block.RUNIC,
 			cuneiform: _zany.block.CUNEIFORM,
@@ -51,10 +51,10 @@ zany [decode,decrypt,d]  {encrypted content}`;
 	$ptty.register("command", {
 		name: "zany-blocks",
 		method: function (cmd) {
-			let blocks=Object.keys(window.zany.alphabets).join(",");
-			cmd.out = `${blocks}
+			let blocks = Object.keys(window.zany.alphabets).join(",");
+			cmd.out = window.zany.alphabets.unicode !== false ? `${blocks}
 
-<u>unicode</u> is also a block, even though it's magical and beautiful, it is laggy due to it's size. Not to mention unstable for decrypting/decoding.`;
+<u>unicode</u> is also a block, even though it's magical and beautiful, it is laggy due to it's size. Not to mention unstable for decrypting/decoding.` : `${blocks}`;
 			return cmd;
 		},
 	});
@@ -70,7 +70,7 @@ zany [decode,decrypt,d]  {encrypted content}`;
 						var sKey = "", inAlphabet = false;
 						if (key in window.zany.alphabets) {
 							inAlphabet = true;
-							if(key!=="unicode") {
+							if (key !== "unicode") {
 								sKey = JSON.stringify(window.zany.alphabets[key]).replace(/^"(.*)"$/, "$1");
 								_key = key;
 								key = window.zany.alphabets[key];
@@ -82,18 +82,18 @@ zany [decode,decrypt,d]  {encrypted content}`;
 							sKey = JSON.stringify(key).replace(/^"(.*)"$/, "$1");
 						}
 						if (inAlphabet) {
-							if(window.zany.key!=="unicode") {
+							if (window.zany.key !== "unicode") {
 								cmd.out = `Zany Key = <input readonly style="text-align: center;" value="${sKey}" /> (alphabet.<b>${_key}</b>)`;
 								window.zany.vkey = window.zany.key = key;
 							} else {
 								$ptty.echo("This may take a while...");
 								cmd.out = `Zany Key = <u>all unicode</u> (alphabet.<b>${_key}</b>)`;
 								window.zany.vkey = "all unicode";
-								window.zany.key = (function() {
+								window.zany.key = (function () {
 									var j, i, results;
 									results = "";
 									for (i = j = 1; j <= 1114111; i = ++j) {
-										results+=String.fromCharCode(i);
+										results += String.fromCharCode(i);
 									}
 									return results;
 								})();
@@ -103,11 +103,11 @@ zany [decode,decrypt,d]  {encrypted content}`;
 							window.zany.vkey = key;
 							window.zany.key = aVeryWeirdFunctionButUseful(key);
 						}
-						if(key!=="unicode") {
+						if (key !== "unicode") {
 							jStore.set("zany-key", window.zany.key, function (error) {if (error) throw error;});
 							jStore.set("zany-vkey", window.zany.vkey, function (error) {if (error) throw error;});
 						} else {
-							$ptty.echo("Didn't save the key to your config due to the extreme length.")
+							$ptty.echo("Didn't save the key to your config due to the extreme length.");
 						}
 					} else {
 						cmd.out = "The key must be 3 characters or more!";
@@ -141,9 +141,9 @@ zany [decode,decrypt,d]  {encrypted content}`;
 
 					let d_r = shortid.generate(2);
 					let d_k = d_r + "_" + shortid.generate(4),
-					    d_e = d_r + "_" + shortid.generate(4),
-					    d_d = d_r + "_" + shortid.generate(4),
-					    d_p = d_r + "_" + shortid.generate(4);
+						d_e = d_r + "_" + shortid.generate(4),
+						d_d = d_r + "_" + shortid.generate(4),
+						d_p = d_r + "_" + shortid.generate(4);
 					cmd.out = `<label for="${d_k}">Key</label>
 <input type="text" id="${d_k}" name="${d_k}">
 <label for="${d_e}">Raw content</label>
@@ -155,30 +155,37 @@ zany [decode,decrypt,d]  {encrypted content}`;
 						document.querySelector("#" + d_k).value = window.zany.vkey;
 						document.querySelector("#" + d_e).value = content;
 						document.querySelector("#" + d_d).value = coded;
-						
+
 						clipboard.writeText(coded);
-						
 
 
-						let codedLen=coded.length,contentLen=content.length;
-						function getRatio(a,b,tolerance) { 
-						/*where a is the first number, b is the second number,  and tolerance is a percentage 
-						of allowable error expressed as a decimal. 753,4466,.08 = 1:6, 753,4466,.05 = 14:83,*/
-							if (a > b) { var bg = a; var sm = b; } else { var bg = b; var sm = a; }
+						let codedLen = coded.length, contentLen = content.length;
+
+						function getRatio(a, b, tolerance) {
+							/*where a is the first number, b is the second number,  and tolerance is a percentage
+							of allowable error expressed as a decimal. 753,4466,.08 = 1:6, 753,4466,.05 = 14:83,*/
+							if (a > b) {
+								var bg = a;
+								var sm = b;
+							} else {
+								var bg = b;
+								var sm = a;
+							}
 							for (var i = 1; i < 1000000; i++) {
 								var d = sm / i;
 								var res = bg / d;
 								var howClose = Math.abs(res - res.toFixed(0));
 								if (howClose < tolerance) {
-									if (a > b) { 
-										return res.toFixed(0) + ':' + i; 
-									} else { 
-										return i + ':' + res.toFixed(0); 
+									if (a > b) {
+										return res.toFixed(0) + ":" + i;
+									} else {
+										return i + ":" + res.toFixed(0);
 									}
 								}
 							}
 						}
-						let ratio=getRatio(codedLen,contentLen,0.1);
+
+						let ratio = getRatio(codedLen, contentLen, 0.1);
 						document.querySelector("#" + d_p).innerText = `${codedLen}/${contentLen} (${ratio})`;
 					}, 20);
 				} else {
@@ -237,5 +244,6 @@ ${zany_link}
 ${zany_usage}`,
 	});
 	document.getElementsByName("zany")[0].checked = true;
+	document.getElementsByName("zany")[0].disabled = true;
 	window.loadedModules.zany = true;
 };

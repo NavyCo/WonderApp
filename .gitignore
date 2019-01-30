@@ -1,0 +1,4 @@
+node_modules
+.idea
+dist/win-ia32-unpacked
+dist/win-unpacked

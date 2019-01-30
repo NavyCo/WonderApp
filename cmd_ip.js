@@ -24,10 +24,10 @@ module.exports = function () {
 					if (error) throw new Error(error);
 					document.querySelector("#" + id).innerHTML = `Your IP is <b>${body}</b>`;
 				})).on("progress", function (state) {
-					let percent=state.percent*100;
+					let percent = state.percent * 100;
 					console.log(state);
 					$(`#${id}_loading`).val(percent);
-				}).on('error', function (err) {
+				}).on("error", function (err) {
 					console.log(err);
 				});
 			}, 20);
@@ -37,5 +37,6 @@ module.exports = function () {
 		help: `A command to get your external IP via ipify.org`,
 	});
 	document.getElementsByName("ip")[0].checked = true;
+	document.getElementsByName("ip")[0].disabled = true;
 	window.loadedModules.ip = true;
 };
